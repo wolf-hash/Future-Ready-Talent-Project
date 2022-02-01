@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Resources</title>
+
+    <style>
+        body {
+            font-family: 'Epilogue', sans-serif;
+        }
+
+        .ui-autocomplete {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: default;
+            /* border-bottom-left-radius: 8px; */
+            border-radius: 10px;
+        }
+
+        .ui-state-active,
+        .ui-widget-content .ui-state-active,
+        .ui-widget-header .ui-state-active,
+        a.ui-button:active,
+        .ui-button:active,
+        .ui-button.ui-state-active:hover {
+            border: 1px solid #003eff;
+            background: #007fff;
+            font-weight: normal;
+            color: #ffffff;
+            border-radius: 8px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0px;
+        }
+
+        .collapse {
+            transition-delay: 1s;
+        }
+
+        .navbar-toggler {
+            border-radius: 10px;
+        }
+
+        .srround {
+            border-radius: 10px;
+        }
+
+        #searchinput {
+            width: 30vw;
+            height: 42px;
+
+        }
+
+        @media only screen and (max-width:600px) {
+            #searchinput {
+                width: 75vw;
+            }
+
+            #searchbutton {
+                margin-left: auto;
+                margin-top: 5px;
+            }
+        }
+
+        #searchbutton {
+            height: 42px;
+            float: right;
+        }
+
+        @media only screen and (max-width:1200px) {
+            #searchinput {
+                width: 60vw;
+            }
+        }
+
+
+        .news {
+            border: solid black 1px;
+            border-radius: 8px;
+            background: #cdcfd2;
+            box-shadow: 1px 3px #888888;
+
+        }
+
+        .lis {
+            border-radius: 15px;
+            display: flex;
+            width: 700px;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            background-color: #eeeeee;
+            margin: 10px auto;
+            padding-left: 30px;
+            height: 4rem;
+            font-size: 25px;
+        }
+
+        .lis1 {
+            border-radius: 8px;
+            display: flex;
+            width: 700px;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            background-color: #eeeeee;
+            margin: 10px auto;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top"
+        style='color: white !important; background-color: #2980B9!important;'>
+        <a class=" navbar-brand" style="color:white; font-weight: 800; font-size: 1.5rem; padding-top: 1px;"
+            href="/">ClubHouse</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Clubs and Chapters
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/clubs">Club Info</a>
+                        <a class="dropdown-item" href="/clubs/events">Events</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/clubs/recruitments/">Recruitments</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/resources/" style="color:white">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white" href="/chatroom/">Chatroom</a>
+                </li>
+
+            </ul>
+
+        </div>
+        {% if user.is_authenticated %}
+        {% load i18n %}
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button type="submit" class=" srround btn btn-info b'width:100%tn-info mt-2">{% trans 'Sign Out' %}</button>
+        </form>
+        {% endif %}
+
+        </div>
+    </nav>
+
+
+    <h2 style='text-align: center; color: #2980b9; font-weight: 800; margin-top: 40px;'>Upload Resources</h2>
+    <div class="container">
+        <div class="lis">
+            <a href="uploadsyll">Upload syllabus</a>
+        </div>
+        <div class="lis">
+            <a href="uploadcat1">CAT 1 Files Upload</a>
+
+        </div>
+        <div class="lis">
+            <a href="uploadcat2">CAT 2 Files Upload</a>
+
+        </div>
+        <div class="lis">
+            <a href="uploadfat">FAT Files Upload</a>
+
+        </div>
+    </div><br>
+    <h2 style='text-align: center; color: #2980b9; font-weight: 800; margin-top: 15px;'>Resource Downloads</h2>
+    <div class="container">
+        {% for i in objects1 %}
+        {% if forloop.counter == 1 %}
+        {% else %}
+
+        <a href="{{i.syll_url}}" class='lis' style='font-size:25px;'>{{i.subject}}</a>
+
+        <h5 class='lis1' style='font-weight: 800; height: 2rem;'>CAT 1 Papers:</h5>
+        {% for j in objects2 %}
+        <!-- <h4>{{j.course}},    {{i.course_code}}</h4> -->
+        {% if j.course == i %}
+
+
+        <a href="{{j.cat_1_url}}" class='lis1' style='font-size: 15px; background-color: white;'>CAT 1</a>
+        {% endif %}
+        {% endfor %}
+        <h5 class='lis1' style='font-weight: 800; height: 2rem;'>CAT 2 Papers:</h5>
+        {% for k in objects3 %}
+        {% if k.course == i %}
+        <a href="{{k.cat_2_url}}" class='lis1' style='font-size: 15px; background-color: white;'
+            style='font-size:18px'>CAT 2</a>
+        {% endif %}
+        {% endfor %}
+        <h5 class='lis1' style='font-weight: 800; height: 2rem;'>FAT Papers:</h5>
+        {% for l in objects4 %}
+        {% if l.course == i %}
+        <a href="{{l.fat_url}}" class='lis1' style='font-size: 15px;background-color: white; style='font-size:18px'>FAT</a>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>
