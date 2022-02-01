@@ -120,11 +120,11 @@ EMAIL_HOST_PASSWORD = 'alphakkrpassword'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djangodb',
-        'USER': 'alpha',
-        'PASSWORD': 'alphapassword',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'cchdb',
+        'USER': 'karan',
+        'PASSWORD': 'Google2901!',
+        'HOST': 'collegeclubhousedb.postgres.database.azure.com',
+        'PORT': '5432',
         'OPTIONS': {"sslmode": "require"},
     }
 }
