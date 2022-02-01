@@ -110,24 +110,24 @@ EMAIL_HOST_PASSWORD = 'alphakkrpassword'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cchdb',
-        'USER': 'karan',
-        'PASSWORD': 'Google2901!',
-        'HOST': 'collegeclubhousedb.postgres.database.azure.com',
-        'PORT': '5432',
-        'OPTIONS': {"sslmode": "require"},
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'cchdb',
+#         'USER': 'karan',
+#         'PASSWORD': 'Google2901!',
+#         'HOST': 'collegeclubhousedb.postgres.database.azure.com',
+#         'PORT': '5432',
+#         'OPTIONS': {"sslmode": "require"},
+#     }
+# }
 
 import dj_database_url
 
